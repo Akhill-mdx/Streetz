@@ -57,14 +57,18 @@ public class BasketballController : MonoBehaviour
       if (IsBallFlying)
       {
          T += Time.deltaTime;
-         float duration = 0.5f;
+         float duration = 1f;
          float t01 = T / duration;
 
+        // move to target
          Vector3 A = PosOverHead.position;
          Vector3 B = Target.position;
          Vector3 pos = Vector3.Lerp(A, B, t01);
 
-         Ball.position = pos;
+            // move in arc
+            Vector3 arc = Vector3.up * 5 * Mathf.Sin(t01 * 3.14f);
+
+            Ball.position = pos + arc;
 
         //moment when ball arrives at the target
         if (t01 >= 1)
@@ -73,5 +77,14 @@ public class BasketballController : MonoBehaviour
                 Ball.GetComponent<Rigidbody>().isKinematic = false;
             }
       }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(!IsBallInHands && !IsBallFlying)
+        {
+            IsBallInHands = true;
+            Ball.GetComponent<Rigidbody>().isKinematic = true;
+        }
     }
 }
