@@ -1576,8 +1576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f087df226830df74299804a9a3945e23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackAndForth
-  delta: 0.8
-  speed: 1
+  delta: 0.5
+  speed: 3
 --- !u!1 &1554924724
 GameObject:
   m_ObjectHideFlags: 0

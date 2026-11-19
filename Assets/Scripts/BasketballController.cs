@@ -45,7 +45,7 @@ public class BasketballController : MonoBehaviour
             }
 
             // throw the ball
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyUp(KeyCode.Space))
             {
                 IsBallInHands = false;
                 IsBallFlying = true;
