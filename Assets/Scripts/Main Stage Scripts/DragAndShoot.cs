@@ -36,15 +36,6 @@ public class DragAndShoot : MonoBehaviour
             return;
 
         rb.AddForce(new Vector3(Force.x, Force.y, Force.z) * forceMultiplier);
-        isShoot = true;
-    }
 
-    void Update()
-    {
-        if (rb.linearVelocity.x <= 5)
-        {
-
-            rb.linearVelocity *= 0.9f;
-        }
     }
 }
