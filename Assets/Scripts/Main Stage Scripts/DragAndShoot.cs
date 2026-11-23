@@ -20,12 +20,16 @@ public class DragAndShoot : MonoBehaviour
     private void OnMouseDown()
     {
         mousePressDownPos = Input.mousePosition;
+        Debug.Log("Mouse Dwn at: " + mousePressDownPos);
     }
 
     private void OnMouseUp()
     {
         mouseReleasePos = Input.mousePosition;
-        Shoot(mousePressDownPos - mouseReleasePos);
+        Debug.Log("Mouse Up: " + mouseReleasePos);
+
+        //Shoot(mousePressDownPos - mouseReleasePos);
+        Shoot(mouseReleasePos - mousePressDownPos);
     }
 
     private float forceMultiplier = 3;
@@ -35,7 +39,8 @@ public class DragAndShoot : MonoBehaviour
         if (isShoot)
             return;
 
-        rb.AddForce(new Vector3(Force.x, Force.y, Force.z) * forceMultiplier);
+        Debug.Log("Force: " + Force);
+        rb.AddForce(new Vector3(Force.z, Force.x, Force.y) * forceMultiplier);
 
     }
 }
