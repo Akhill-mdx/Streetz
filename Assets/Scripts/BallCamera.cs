@@ -1,19 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BallCamera : MonoBehaviour
 {
-    public Transform cam;
-    public Transform player;
-    public float CamDistance;
+    float rotationX = 0f;
+    float rotationY = 0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    public float sensitivity = 10f;
 
-    }
-    // Update is called once per frame
     void Update()
     {
-        cam.position = player.position + new Vector3(0, 0, CamDistance);
+      rotationY += Input.GetAxis("Mouse X") * sensitivity;
+      rotationX += Input.GetAxis("Mouse Y") * -1 * sensitivity;
+        transform.localEulerAngles = new Vector3(rotationX, rotationY, 0f);
     }
+
 }
