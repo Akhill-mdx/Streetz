@@ -18,9 +18,11 @@ public class BallCamera : MonoBehaviour
     //Update is called once per frame
     void Update()
     {
+        // If the trajectory line is not locked
         if (!trajectoryLineController.isTrajectoryLineLocked)
         {
-            if(Input.GetAxis("Mouse Y") != 0 || Input.GetAxis("Mouse X") != 0)
+            // If the mouse is moved
+            if (Input.GetAxis("Mouse Y") != 0 || Input.GetAxis("Mouse X") != 0)
             {
                 float verticalInput = Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime * -1;
                 float horizontalInput = Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
