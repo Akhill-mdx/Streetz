@@ -4,16 +4,30 @@ using UnityEngine;
 
 public class BallCamera : MonoBehaviour
 {
-    float rotationX = 0f;
-    float rotationY = 0f;
+    public TrajectoryLineController trajectoryLineController;
+    public GameObject ballObject;
 
-    public float sensitivity = 10f;
+    private float rotationSpeed = 500.0f;
 
+    //Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    //Update is called once per frame
     void Update()
     {
-      rotationY += Input.GetAxis("Mouse X") * sensitivity;
-      rotationX += Input.GetAxis("Mouse Y") * -1 * sensitivity;
-        transform.localEulerAngles = new Vector3(rotationX, rotationY, 0f);
+        if (!trajectoryLineController.isTrajectoryLineLocked)
+        {
+            if(Input.GetAxis("Mouse Y") != 0 || Input.GetAxis("Mouse X") != 0)
+            {
+                float verticalInput = Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime * -1;
+                float horizontalInput = Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
+                ballObject.transform.Rotate(Vector3.right, verticalInput);
+                ballObject.transform.Rotate(Vector3.up, horizontalInput, Space.World);
+            }
+        }
     }
 
 }

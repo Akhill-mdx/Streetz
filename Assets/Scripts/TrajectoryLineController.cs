@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class TrajectoryLineController : MonoBehaviour
 {
+    public GameObject trajectoryLineObject;
+
+
+
     private Vector3 testPosition = new Vector3(0, 0, 0);
     private int testLevel = 3;
     private float testSpeed = 1.2f;
@@ -9,36 +13,47 @@ public class TrajectoryLineController : MonoBehaviour
 
 
 
-    private Vector3 TrajectoryLinePosition;
-    private Vector3 TrajectoryLineDirection;
-    private Vector3 BallPosition;
-    private bool IsTrajectoryLineVisible;
-    private bool IsTrajectoryLineLocked;
+
+
+
+
+    private Vector3 trajectoryLinePosition;
+    private Vector3 trajectoryLineDirection;
+    private Vector3 ballPosition;
+    private bool isTrajectoryLineVisible;
+    public bool isTrajectoryLineLocked;
 
 
     void Start()
     {
-        TrajectoryLinePosition = new Vector3(0, 0, 0);
-        TrajectoryLineDirection = new Vector3(0, 0, 1);
-        BallPosition = new Vector3(0, 0, 0);
-        IsTrajectoryLineVisible = false;
-        IsTrajectoryLineLocked = false;
+        trajectoryLinePosition = new Vector3(0, 0, 0);
+        trajectoryLineDirection = new Vector3(0, 0, 1);
+        ballPosition = new Vector3(0, 0, 0);
+        isTrajectoryLineVisible = false;
+        isTrajectoryLineLocked = true;
     }
 
     void Update()
     {
-        SetTrajectoryLineVisibility(IsTrajectoryLineVisible);
+        SetTrajectoryLineVisibility(isTrajectoryLineVisible);
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            Debug.Log("Right mouse button clicked");
-            IsTrajectoryLineLocked = !IsTrajectoryLineLocked;
-
-
-
-            if (!IsTrajectoryLineVisible)
+           
+            isTrajectoryLineLocked = !isTrajectoryLineLocked;
+            if (isTrajectoryLineLocked)
             {
-                IsTrajectoryLineVisible = true;
+                Debug.Log("Trajectory Line Locked");
+            }
+            else
+            {
+                Debug.Log("Trajectory Line Unlocked");
+            }
+
+
+            if (!isTrajectoryLineVisible)
+            {
+                isTrajectoryLineVisible = true;
             }
 
 
@@ -48,6 +63,6 @@ public class TrajectoryLineController : MonoBehaviour
 
     private void SetTrajectoryLineVisibility(bool isVisible)
     {
-        GetComponent<Renderer>().enabled = isVisible;
+        trajectoryLineObject.GetComponent<Renderer>().enabled = isVisible;
     }
 }
