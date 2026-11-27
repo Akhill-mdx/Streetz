@@ -3,6 +3,7 @@ using UnityEngine;
 public class TrajectoryLineController : MonoBehaviour
 {
     public GameObject trajectoryLineObject;
+    public GameObject trajectoryLineEndObject;
 
 
 
@@ -64,5 +65,6 @@ public class TrajectoryLineController : MonoBehaviour
     private void SetTrajectoryLineVisibility(bool isVisible)
     {
         trajectoryLineObject.GetComponent<Renderer>().enabled = isVisible;
+        trajectoryLineEndObject.GetComponent<Renderer>().enabled = isVisible;
     }
 }

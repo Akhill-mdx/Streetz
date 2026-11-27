@@ -225,12 +225,12 @@ Transform:
   m_GameObject: {fileID: 125938460}
   serializedVersion: 2
   m_LocalRotation: {x: -0.3826833, y: -0, z: -0, w: 0.9238797}
-  m_LocalPosition: {x: 49.856, y: 2.756, z: 32.666}
+  m_LocalPosition: {x: 0.025997162, y: 1.756, z: 0.66600037}
   m_LocalScale: {x: 0.088069364, y: 0.11420058, z: 1.44978}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1756733376}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1129224741}
   m_LocalEulerAnglesHint: {x: -45, y: 0, z: 0}
 --- !u!1 &673380112
 GameObject:
@@ -805,12 +805,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1129224737}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4, z: 15}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 49.83, y: 1, z: 32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1923059666}
+  m_Children:
+  - {fileID: 125938465}
+  - {fileID: 1923059666}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1167163956
 GameObject:
@@ -1179,6 +1181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrajectoryLineController
   trajectoryLineObject: {fileID: 125938460}
+  trajectoryLineEndObject: {fileID: 1756733375}
   isTrajectoryLineLocked: 0
 --- !u!114 &1900962921
 MonoBehaviour:
@@ -1193,7 +1196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallCamera
   trajectoryLineController: {fileID: 1900962920}
-  camera: {fileID: 1923059663}
+  ballObject: {fileID: 1129224737}
 --- !u!4 &1900962922
 Transform:
   m_ObjectHideFlags: 0
@@ -1295,13 +1298,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923059663}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.83, y: 5, z: 17}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 4, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1129224741}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 1129224741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1923059667
 MonoBehaviour:
@@ -1691,6 +1693,5 @@ SceneRoots:
   - {fileID: 2002180379}
   - {fileID: 673380116}
   - {fileID: 703506632}
-  - {fileID: 125938465}
   - {fileID: 1900962922}
-  - {fileID: 1923059666}
+  - {fileID: 1129224741}
