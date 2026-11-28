@@ -7,7 +7,7 @@ public class BallCamera : MonoBehaviour
     public TrajectoryLineController trajectoryLineController;
     public GameObject ballObject;
 
-    private float rotationSpeed = 500.0f;
+    public float rotationSpeed = 500.0f;
 
     //Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class BallCamera : MonoBehaviour
     void Update()
     {
         // If the trajectory line is not locked
-        if (!trajectoryLineController.isTrajectoryLineLocked)
+        if (!trajectoryLineController.isTrajectoryLineMovementLocked)
         {
             // If the mouse is moved
             if (Input.GetAxis("Mouse Y") != 0 || Input.GetAxis("Mouse X") != 0)

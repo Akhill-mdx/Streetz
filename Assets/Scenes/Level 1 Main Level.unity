@@ -1197,6 +1197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BallCamera
   trajectoryLineController: {fileID: 1900962920}
   ballObject: {fileID: 1129224737}
+  rotationSpeed: 1150
 --- !u!4 &1900962922
 Transform:
   m_ObjectHideFlags: 0
